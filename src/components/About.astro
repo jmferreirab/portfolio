@@ -1,0 +1,19 @@
+---
+import { site } from '../data/site';
+---
+
+<section id="about" class="py-16 sm:py-24 bg-gray-50 border-t border-gray-200">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
+      About
+    </h2>
+    <div class="space-y-6 text-gray-700 leading-relaxed">
+      <p class="text-lg">
+        {site.about}
+      </p>
+      <p class="text-lg">
+        I'm currently based in {site.location} and have {site.yearsOfExperience} years of professional experience building production systems. My focus is on solving complex technical problems with clean, maintainable code and thoughtful system design.
+      </p>
+    </div>
+  </div>
+</section>

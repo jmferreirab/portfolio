@@ -1,0 +1,21 @@
+export const site = {
+  name: 'Manuel Ferreira',
+  title: 'Senior Software Engineer',
+  description: 'Senior Software Engineer specializing in distributed systems, data pipelines, and cloud infrastructure.',
+  introduction: 'Skilled software developer and data engineer with over 5 years of experience designing, developing, and maintaining SaaS solutions and automation projects for data pipelines. Passionate about artificial intelligence, cybersecurity, open-source, automation, and optimization.',
+  about: 'I am a software engineer with over 5 years of professional experience building distributed systems and data automation solutions. I specialize in backend development with Python and modern cloud infrastructure, with a focus on designing scalable systems that solve real business problems. My work spans ETL orchestration, backend services, and cloud platforms. I value clean architecture, automation, and continuous learning.',
+  yearsOfExperience: 5,
+  location: 'Bogota, Colombia',
+  email: 'mandev@gmail.com',
+  github: 'https://github.com/mandev',
+  linkedin: 'https://www.linkedin.com/in/mandev/',
+  skills: {
+    languages: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'C#', 'VBA'],
+    backend: ['Django', 'FastAPI', 'Node.js'],
+    databases: ['SQL Server', 'SQLite', 'MariaDB', 'MongoDB', 'CosmosDB'],
+    infrastructure: ['Docker', 'AWS', 'Azure', 'Linux', 'WSL', 'Microsoft IIS', 'Windows Server'],
+    tools: ['Git', 'GitLab', 'GitHub', 'SSIS', 'Power BI', 'Postman', 'VS Code', 'Jira', 'Docker'],
+    cloud: ['AWS Lambda', 'Azure Functions', 'AWS S3', 'Blob Storage', 'AWS Secrets Manager', 'Microsoft AAD'],
+    testing: ['Pytest', 'Selenium', 'Sonarqube'],
+  },
+};

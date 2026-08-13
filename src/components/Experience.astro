@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import ExperienceItem from './ExperienceItem.astro';
+
+const entries = await getCollection('experience');
+// Sort by start date descending (most recent first)
+const sortedEntries = entries.sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
+---
+
+<section id="experience" class="py-16 sm:py-24 bg-white border-t border-gray-200">
+  <div class="max-w-3xl mx-auto px-6">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-12">
+      Experience
+    </h2>
+    <div class="space-y-8">
+      {sortedEntries.map(entry => (
+        <ExperienceItem
+          company={entry.data.company}
+          role={entry.data.role}
+          location={entry.data.location}
+          startDate={entry.data.startDate}
+          endDate={entry.data.endDate}
+          summary={entry.data.summary}
+          highlights={entry.data.highlights}
+          technologies={entry.data.technologies}
+        />
+      ))}
+    </div>
+  </div>
+</section>
