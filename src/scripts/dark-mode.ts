@@ -107,19 +107,19 @@ function updateThemeButton(mode: 'light' | 'dark' | 'system') {
     const icon = button.querySelector('[data-icon]');
     const label = button.getAttribute('aria-label');
 
-    let newIcon = '🌙';
+    let newIcon = '◐';
     let newLabel = 'Switch to dark mode';
 
     if (mode === 'dark') {
-      newIcon = '🌅';
+      // newIcon = '◐';
       newLabel = 'Use system preference';
     } else if (mode === 'light') {
-      newIcon = '⚙️';
-      newLabel = 'Switch to light mode';
+      // newIcon = '🕶️';
+      newLabel = 'Switch to dark mode';
     } else if (mode === 'system') {
       const effective = getEffectiveTheme('system');
-      newIcon = effective === 'dark' ? '🌙' : '☀️';
-      newLabel = 'Switch to dark mode';
+      // newIcon = effective === 'dark' ? '🔅' : '🕶️';
+      newLabel = 'Switch to light mode';
     }
 
     if (icon) {
