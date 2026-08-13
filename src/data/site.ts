@@ -6,9 +6,9 @@ export const site = {
   about: 'I am a software engineer with over 5 years of professional experience building distributed systems and data automation solutions. I specialize in backend development with Python and modern cloud infrastructure, with a focus on designing scalable systems that solve real business problems. My work spans ETL orchestration, backend services, and cloud platforms. I value clean architecture, automation, and continuous learning.',
   yearsOfExperience: 5,
   location: 'Bogota, Colombia',
-  email: 'mandev@gmail.com',
-  github: 'https://github.com/mandev',
-  linkedin: 'https://www.linkedin.com/in/mandev/',
+  email: 'serious.owl551@passinbox.com',
+  github: 'https://github.com/jmferreirab',
+  linkedin: 'https://www.linkedin.com/in/ferreiradevs/',
   skills: {
     languages: ['Python', 'JavaScript', 'TypeScript', 'SQL', 'C#', 'VBA'],
     backend: ['Django', 'FastAPI', 'Node.js'],
