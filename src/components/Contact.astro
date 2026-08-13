@@ -2,22 +2,22 @@
 import { site } from '../data/site';
 ---
 
-<section id="contact" class="py-16 sm:py-24 bg-gray-50 border-t border-gray-200">
+<section id="contact" class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
       Get in Touch
     </h2>
-    <p class="text-lg text-gray-700 mb-8 leading-relaxed max-w-2xl mx-auto">
+    <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
       Interested in working together? I'm always open to discussing new opportunities, interesting projects, or just having a conversation.
     </p>
     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-      <a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded font-medium hover:bg-blue-700 transition-colors">
+      <a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 dark:bg-blue-600 text-white dark:text-white rounded font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors">
         Send me an email
       </a>
-      <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
+      <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">
         Connect on LinkedIn →
       </a>
-      <a href={site.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors">
+      <a href={site.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">
         Follow on GitHub →
       </a>
     </div>

@@ -38,9 +38,41 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
+    <!-- Dark mode script to prevent flash -->
+    <script is:inline>
+      const STORAGE_KEY = 'portfolio-theme-preference';
+      function getSavedPreference() {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          if (saved) {
+            const parsed = JSON.parse(saved);
+            if (parsed.mode === 'light' || parsed.mode === 'dark' || parsed.mode === 'system') {
+              return parsed;
+            }
+          }
+        } catch (e) {}
+        return { mode: 'system' };
+      }
+      function getEffectiveTheme(preference) {
+        if (preference === 'system') {
+          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        return preference;
+      }
+      const pref = getSavedPreference();
+      const theme = getEffectiveTheme(pref.mode);
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+
     <title>{title}</title>
   </head>
-  <body class="bg-white text-gray-900">
+  <body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
     <slot />
+    <script>
+      import { initDarkMode } from '../scripts/dark-mode';
+      initDarkMode();
+    </script>
   </body>
 </html>

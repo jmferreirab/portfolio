@@ -19,30 +19,30 @@ const formatDate = (date: Date) => {
 const dateRange = endDate ? `${formatDate(startDate)} – ${formatDate(endDate)}` : `${formatDate(startDate)} – Present`;
 ---
 
-<div class="pb-12 border-b border-gray-200 last:border-b-0">
+<div class="pb-12 border-b border-gray-200 dark:border-gray-800 last:border-b-0">
   <div class="mb-4">
     <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2">
-      <h3 class="text-xl font-bold text-gray-900">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">
         {company}
       </h3>
-      <span class="text-sm text-gray-500">
+      <span class="text-sm text-gray-500 dark:text-gray-400">
         {dateRange}
       </span>
     </div>
-    <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-lg text-gray-700">
+    <div class="flex flex-col sm:flex-row sm:items-center gap-2 text-lg text-gray-700 dark:text-gray-300">
       <span class="font-semibold">{role}</span>
-      <span class="hidden sm:inline text-gray-400">·</span>
-      <span class="text-gray-600">{location}</span>
+      <span class="hidden sm:inline text-gray-400 dark:text-gray-600">·</span>
+      <span class="text-gray-600 dark:text-gray-400">{location}</span>
     </div>
   </div>
 
-  <p class="text-gray-700 mb-4 leading-relaxed">
+  <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
     {summary}
   </p>
 
   <ul class="mb-6 space-y-2 ml-4">
     {highlights.map(highlight => (
-      <li class="text-gray-700 leading-relaxed flex gap-3 before:content-['•'] before:text-blue-600 before:font-bold before:flex-shrink-0">
+      <li class="text-gray-700 dark:text-gray-300 leading-relaxed flex gap-3 before:content-['•'] before:text-blue-600 dark:before:text-blue-400 before:font-bold before:flex-shrink-0">
         <span>{highlight}</span>
       </li>
     ))}
@@ -50,7 +50,7 @@ const dateRange = endDate ? `${formatDate(startDate)} – ${formatDate(endDate)}
 
   <div class="flex flex-wrap gap-2">
     {technologies.map(tech => (
-      <span class="inline-flex px-3 py-1 bg-blue-50 text-blue-700 rounded text-sm font-medium">
+      <span class="inline-flex px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 rounded text-sm font-medium">
         {tech}
       </span>
     ))}

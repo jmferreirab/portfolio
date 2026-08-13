@@ -4,11 +4,11 @@ import { site } from '../data/site';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-900 text-gray-300 border-t border-gray-800 py-12">
+<footer class="bg-gray-900 dark:bg-gray-950 text-gray-300 dark:text-gray-400 border-t border-gray-800 dark:border-gray-800 py-12">
   <div class="max-w-3xl mx-auto px-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
       <div>
-        <h3 class="font-bold text-white mb-4">
+        <h3 class="font-bold text-white dark:text-gray-100 mb-4">
           {site.name}
         </h3>
         <p class="text-sm leading-relaxed">
@@ -16,37 +16,37 @@ const currentYear = new Date().getFullYear();
         </p>
       </div>
       <div>
-        <h3 class="font-bold text-white mb-4">
+        <h3 class="font-bold text-white dark:text-gray-100 mb-4">
           Quick Links
         </h3>
         <ul class="space-y-2 text-sm">
           <li>
-            <a href="#about" class="hover:text-white transition-colors">About</a>
+            <a href="#about" class="hover:text-white dark:hover:text-gray-200 transition-colors">About</a>
           </li>
           <li>
-            <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+            <a href="#experience" class="hover:text-white dark:hover:text-gray-200 transition-colors">Experience</a>
           </li>
           <li>
-            <a href="#work" class="hover:text-white transition-colors">Work</a>
+            <a href="#work" class="hover:text-white dark:hover:text-gray-200 transition-colors">Work</a>
           </li>
           <li>
-            <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            <a href="#contact" class="hover:text-white dark:hover:text-gray-200 transition-colors">Contact</a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
+    <div class="border-t border-gray-800 dark:border-gray-800 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
       <p>
         © {currentYear} {site.name}. All rights reserved.
       </p>
       <div class="flex gap-6">
-        <a href={site.github} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+        <a href={site.github} target="_blank" rel="noopener noreferrer" class="hover:text-white dark:hover:text-gray-200 transition-colors">
           GitHub
         </a>
-        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">
+        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-white dark:hover:text-gray-200 transition-colors">
           LinkedIn
         </a>
-        <a href={`mailto:${site.email}`} class="hover:text-white transition-colors">
+        <a href={`mailto:${site.email}`} class="hover:text-white dark:hover:text-gray-200 transition-colors">
           Email
         </a>
       </div>
