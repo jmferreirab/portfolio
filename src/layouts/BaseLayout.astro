@@ -1,6 +1,6 @@
 ---
-import { site } from '../data/site';
-import '../styles/global.css';
+import { site } from "../data/site";
+import "../styles/global.css";
 
 interface Props {
   title?: string;
@@ -21,49 +21,34 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:site_name" content={site.name} />
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:card" content="summary_large_image" />
-    
+
     <!-- Preconnect to external services -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Dark mode script to prevent flash -->
+    <!-- Dark mode inline script to prevent white flash -->
     <script is:inline>
-      const STORAGE_KEY = 'portfolio-theme-preference';
-      function getSavedPreference() {
-        try {
-          const saved = localStorage.getItem(STORAGE_KEY);
-          if (saved) {
-            const parsed = JSON.parse(saved);
-            if (parsed.mode === 'light' || parsed.mode === 'dark' || parsed.mode === 'system') {
-              return parsed;
-            }
-          }
-        } catch (e) {}
-        return { mode: 'system' };
-      }
-      function getEffectiveTheme(preference) {
-        if (preference === 'system') {
-          return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        }
-        return preference;
-      }
-      const pref = getSavedPreference();
-      const theme = getEffectiveTheme(pref.mode);
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      }
+      const STORAGE_KEY = "portfolio-theme-preference";
+
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const darkTheme =
+        saved === "dark" ||
+        (saved !== "dark" &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches);
+      if (darkTheme) document.documentElement.classList.add("dark");
+
     </script>
 
     <title>{title}</title>
@@ -71,7 +56,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
     <slot />
     <script>
-      import { initDarkMode } from '../scripts/dark-mode';
+      import { initDarkMode } from "../scripts/dark-mode";
       initDarkMode();
     </script>
   </body>
