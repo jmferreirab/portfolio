@@ -12,30 +12,58 @@ const navItems = [
   <div class="max-w-3xl mx-auto px-6">
     <div class="space-y-6">
       <div>
-        <h1 class="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+        <h1
+          class="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-2"
+        >
           {site.name}
         </h1>
-        <p class="text-2xl sm:text-3xl text-gray-600 dark:text-gray-400 font-light">
+        <p
+          class="text-2xl sm:text-3xl text-gray-600 dark:text-gray-400 font-light"
+        >
           {site.title}
         </p>
       </div>
 
-      <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl">
-        {site.introduction}
+      <p
+        class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl"
+      >
+        Are you looking for a <strong>Python specialist</strong> with experience building
+        and maintaining data-intensive enterprise solutions?
       </p>
 
-      <div class="flex flex-wrap gap-6 pt-4">
-        <a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">
-          <span>Get in touch</span>
-          <span>→</span>
-        </a>
-        <a href={site.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors">
-          <span>GitHub</span>
-        </a>
-        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors">
-          <span>LinkedIn</span>
-        </a>
-      </div>
+      <p
+        class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl"
+      >
+        I bring over <strong>5 years of exp</strong> working with backend systems,
+        data integration, cloud services, and M365, along with strong communication
+        skills.
+      </p>
+    </div>
+
+    <div class="flex flex-wrap gap-6 pt-4">
+      <a
+        href={`mailto:${site.email}`}
+        class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+      >
+        <span>Get in touch</span>
+        <span>→</span>
+      </a>
+      <a
+        href={site.github}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+      >
+        <span>GitHub</span>
+      </a>
+      <a
+        href={site.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
+      >
+        <span>LinkedIn</span>
+      </a>
     </div>
   </div>
 </section>
