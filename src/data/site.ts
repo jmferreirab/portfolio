@@ -11,12 +11,12 @@ export const site = {
 
     approach: {
       title: 'Engineering approach',
-      text: 'I aim to build software that is reliable, secure, and people actually want to use. I pay close attention to details, system behaviour, and enjoy working closely with our users to understand their needs.',
+      text: 'I aim to build software that is reliable, secure, and that people like using. I pay close attention to details, system behaviour, and enjoy working closely with our users to understand their needs.',
     },
 
     interests: {
       title: 'The human side',
-      text: 'When I am off the clock, I am likely exercising, cooking, exploring cybersecurity reports and AI trends, or automating something.',
+      text: "Off the clock, you'll find me exercising, cooking, exploring cybersecurity reports and AI trends, or automating something.",
     },
   },
   yearsOfExperience: 5,
