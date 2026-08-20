@@ -2,7 +2,7 @@
 company: Teleperformance
 role: Lead Software Developer
 startDate: 2021-03-01
-endDate: 2026-08-12
+endDate: 2026-08-01
 location: Bogota, Colombia (Remote)
 employmentType: Full-time
 summary: Led development and maintenance of a distributed orchestration platform supporting over 2000 ETL pipelines
