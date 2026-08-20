@@ -105,7 +105,7 @@ The hero should establish professional credibility without becoming a personal-b
 [CONTACT] [GITHUB] [LINKEDIN]
 ```
 
-The introduction should generally be no more than 2–3 sentences.
+The introduction should generally be no more than 2-3 sentences.
 
 Avoid generic claims such as:
 
@@ -134,7 +134,7 @@ This section should explain the engineer's professional background, preferred ty
 
 ### Content target
 
-Approximately **100–180 words**.
+Approximately **100-180 words**.
 
 This should complement the hero rather than repeat it.
 
@@ -157,7 +157,7 @@ Each entry should contain:
 - Employment dates.
 - Employment type, if relevant.
 - Short description of the organization/context, if useful.
-- 2–5 responsibility/achievement points.
+- 2-5 responsibility/achievement points.
 - Relevant technologies.
 - Quantifiable outcomes where they can be truthfully provided.
 
@@ -209,7 +209,7 @@ Professional technical work may be included here when it provides a better demon
 
 ### Recommended number
 
-**2–4 entries maximum.**
+**2-4 entries maximum.**
 
 The section should not become a project catalog.
 
@@ -945,15 +945,15 @@ serious.owl551@passinbox.com
 PROFESSIONAL SUMMARY
 Skilled software developer and data engineer with over 5 years of experience designing, developing, and maintaining SaaS solutions and automation projects for data pipelines. Proven ability to manage the complete life cycle of software development and deliver independently or within a team. Passionate about artificial intelligence, cybersecurity, open-source, automation, problem-solving and optimization. Fluent in English (C2 level).
 RELEVANT WORK EXPERIENCE
-Teleperformance Nov 2019 – Present – 5 years
-Lead software developer | Mar 2021 – Present – 3 years and 10 months Bogota, Colombia (Remote)
+Teleperformance Nov 2019 - Present - 5 years
+Lead software developer | Mar 2021 - Present - 3 years and 10 months Bogota, Colombia (Remote)
  Developed and maintained a distributed orchestration platform using Python, Javascript, Django, SQL Server, Microsoft Graph and Entra ID, to support over 2000 ETL pipelines for +3 years.
  Led 6 company-wide projects to automatically deliver KPI reports over email with Python and SSIS.
  Built chatbot prototypes for Teams with Microsoft Azure AI services (Hybrid Cloud, C#).
  Collaborated with senior management to advise on project direction, scope, and protocols.
  Conducted technical interviews for more than 20 candidates to hire for senior developer roles.
 
-Data Analyst | Nov 2019 – Feb 2021 – 1 year and 4 months
+Data Analyst | Nov 2019 - Feb 2021 - 1 year and 4 months
  Built +10 data viz and automation projects using SQL Server, SSIS, Power BI, Excel, Python, and VBA.
 
 EDUCATION & CERTIFICATIONS
@@ -962,11 +962,11 @@ Azure Fundamentals (AZ-900) Feb 2025
 Google Career Certificates on Coursera Online
 Google Cybersecurity Specialization Nov 2024
 SENA Bogota, Colombia
-Cloud services and application development, Technician Degree Mar 2023 – Sep 2024
+Cloud services and application development, Technician Degree Mar 2023 - Sep 2024
 MinTic Colombia Bogota, Colombia
-Cloud Architecture – TalentoTech Bootcamp Mar 2024 – Jun 2024
+Cloud Architecture - TalentoTech Bootcamp Mar 2024 - Jun 2024
 Universidad Distrital Francisco Jose de Caldas Bogota, Colombia
-Systems Engineering Jan 2016 – Sep 2018
+Systems Engineering Jan 2016 - Sep 2018
 
 SKILLS
 Languages and libraries: Python, Django, FastAPI, Pytest, Node.JS, Bootstrap, Airflow, Selenium, Pandas.
