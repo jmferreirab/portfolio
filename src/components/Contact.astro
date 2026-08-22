@@ -1,25 +1,14 @@
 ---
-import { site } from '../data/site';
+import { translations } from '../i18n/translations';
 ---
-
 <section id="contact" class="py-16 sm:py-24 bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
   <div class="max-w-3xl mx-auto px-6 text-center">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-      Get in Touch
-    </h2>
-    <p class="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-      Interested in working together? I'm always open to discussing new opportunities, interesting projects, or just having a conversation.
-    </p>
+    <h2 data-i18n="contact.title" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-6">{translations.en.contact.title}</h2>
+    <p data-i18n="contact.body" class="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed max-w-2xl mx-auto">{translations.en.contact.body}</p>
     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
-      <a href={`mailto:${site.email}`} class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 dark:bg-blue-600 text-white dark:text-white rounded font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors">
-        Send me an email
-      </a>
-      <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">
-        Connect on LinkedIn →
-      </a>
-      <a href={site.github} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">
-        Follow on GitHub →
-      </a>
+      <a href="mailto:serious.owl551@passinbox.com" data-i18n="contact.email" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 dark:bg-blue-600 text-white rounded font-medium hover:bg-blue-700 dark:hover:bg-blue-700 transition-colors">{translations.en.contact.email}</a>
+      <a href="https://www.linkedin.com/in/ferreiradevs/" target="_blank" rel="noopener noreferrer" data-i18n="contact.linkedin" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">{translations.en.contact.linkedin}</a>
+      <a href="https://github.com/jmferreirab" target="_blank" rel="noopener noreferrer" data-i18n="contact.github" class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors">{translations.en.contact.github}</a>
     </div>
   </div>
 </section>

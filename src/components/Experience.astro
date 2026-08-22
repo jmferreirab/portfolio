@@ -1,27 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
 import ExperienceItem from './ExperienceItem.astro';
+import { translations } from '../i18n/translations';
 
 const entries = await getCollection('experience');
-// Sort by start date descending (most recent first)
 const sortedEntries = entries.sort((a, b) => new Date(b.data.startDate).getTime() - new Date(a.data.startDate).getTime());
 ---
-
 <section id="experience" class="py-16 sm:py-24 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
   <div class="max-w-3xl mx-auto px-6">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-12">
-      Experience
-    </h2>
+    <h2 data-i18n="experience.title" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-12">{translations.en.experience.title}</h2>
     <div class="space-y-8">
       {sortedEntries.map(entry => (
         <ExperienceItem
+          id={entry.id}
           company={entry.data.company}
-          role={entry.data.role}
           location={entry.data.location}
           startDate={entry.data.startDate}
           endDate={entry.data.endDate}
-          summary={entry.data.summary}
-          highlights={entry.data.highlights}
           technologies={entry.data.technologies}
         />
       ))}

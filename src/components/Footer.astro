@@ -1,63 +1,24 @@
 ---
 import { site } from '../data/site';
 import ChevronDoubleUp from '../icons/ChevronDoubleUp.astro';
-
+import { translations } from '../i18n/translations';
 const currentYear = new Date().getFullYear();
 ---
-
 <footer class="relative bg-gray-900 dark:bg-gray-950 text-gray-300 dark:text-gray-400 border-t border-gray-800 dark:border-gray-800 py-12">
-  <a
-    href="#"
-    aria-label="Back to top"
-    class="absolute left-1/2 -top-px z-10 flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-gray-900 bg-white text-gray-900 shadow-sm transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
-  >
-    <ChevronDoubleUp class="size-9" />
-  </a>
+  <a href="#" data-i18n-aria-label="footer.backToTop" class="absolute left-1/2 -top-px z-10 flex size-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-gray-900 bg-white text-gray-900 shadow-sm transition-colors hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700" aria-label="Back to top"><ChevronDoubleUp class="size-9" /></a>
   <div class="max-w-3xl mx-auto px-6">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-8">
-      <div>
-        <h3 class="font-bold text-white dark:text-gray-100 mb-4">
-          {site.name}
-        </h3>
-        <p class="text-sm leading-relaxed">
-          Senior Software Engineer specializing in distributed systems and data infrastructure.
-        </p>
-      </div>
-      <div>
-        <h3 class="font-bold text-white dark:text-gray-100 mb-4">
-          Quick Links
-        </h3>
-        <ul class="space-y-2 text-sm">
-          <li>
-            <a href="#about" class="hover:text-white dark:hover:text-gray-200 transition-colors">About</a>
-          </li>
-          <li>
-            <a href="#experience" class="hover:text-white dark:hover:text-gray-200 transition-colors">Experience</a>
-          </li>
-          <li>
-            <a href="#work" class="hover:text-white dark:hover:text-gray-200 transition-colors">Work</a>
-          </li>
-          <li>
-            <a href="#contact" class="hover:text-white dark:hover:text-gray-200 transition-colors">Contact</a>
-          </li>
-        </ul>
-      </div>
+      <div><h3 class="font-bold text-white dark:text-gray-100 mb-4">{site.name}</h3><p data-i18n="footer.description" class="text-sm leading-relaxed">{translations.en.footer.description}</p></div>
+      <div><h3 data-i18n="footer.quickLinks" class="font-bold text-white dark:text-gray-100 mb-4">{translations.en.footer.quickLinks}</h3><ul class="space-y-2 text-sm">
+        <li><a href="#about" data-i18n="footer.about" class="hover:text-white dark:hover:text-gray-200 transition-colors">{translations.en.footer.about}</a></li>
+        <li><a href="#experience" data-i18n="footer.experience" class="hover:text-white dark:hover:text-gray-200 transition-colors">{translations.en.footer.experience}</a></li>
+        <li><a href="#work" data-i18n="footer.work" class="hover:text-white dark:hover:text-gray-200 transition-colors">{translations.en.footer.work}</a></li>
+        <li><a href="#contact" data-i18n="footer.contact" class="hover:text-white dark:hover:text-gray-200 transition-colors">{translations.en.footer.contact}</a></li>
+      </ul></div>
     </div>
     <div class="border-t border-gray-800 dark:border-gray-800 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
-      <p>
-        © {currentYear} {site.name}. All rights reserved.
-      </p>
-      <div class="flex gap-6">
-        <a href={site.github} target="_blank" rel="noopener noreferrer" class="hover:text-white dark:hover:text-gray-200 transition-colors">
-          GitHub
-        </a>
-        <a href={site.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-white dark:hover:text-gray-200 transition-colors">
-          LinkedIn
-        </a>
-        <a href={`mailto:${site.email}`} class="hover:text-white dark:hover:text-gray-200 transition-colors">
-          Email
-        </a>
-      </div>
+      <p>© {currentYear} {site.name}. <span data-i18n="footer.rights">{translations.en.footer.rights}</span></p>
+      <div class="flex gap-6"><a href="https://github.com/jmferreirab" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/ferreiradevs/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href={`mailto:${site.email}`}>Email</a></div>
     </div>
   </div>
 </footer>

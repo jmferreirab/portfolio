@@ -1,52 +1,23 @@
 ---
 import { site } from '../data/site';
+import { translations } from '../i18n/translations';
 
 type SkillCategory = keyof typeof site.skills;
-
-const categories: { key: SkillCategory; label: string }[] = [
-  { key: 'languages', label: 'Languages' },
-  { key: 'backend', label: 'Backend' },
-  { key: 'databases', label: 'Databases' },
-  { key: 'infrastructure', label: 'Infrastructure' },
-  { key: 'cloud', label: 'Cloud Services' },
-  { key: 'tools', label: 'Tools & Platforms' },
-  { key: 'testing', label: 'Testing' },
-  { key: 'ai', label: 'AI & Generative Tools' },
+const categories: { key: SkillCategory; labelKey: keyof typeof translations.en.skills.categories }[] = [
+  { key: 'languages', labelKey: 'languages' }, { key: 'backend', labelKey: 'backend' }, { key: 'databases', labelKey: 'databases' },
+  { key: 'infrastructure', labelKey: 'infrastructure' }, { key: 'cloud', labelKey: 'cloud' }, { key: 'tools', labelKey: 'tools' },
+  { key: 'testing', labelKey: 'testing' }, { key: 'ai', labelKey: 'ai' },
 ];
-
-// Filter out empty categories
-const activeCategories = categories.filter(
-  (cat) => site.skills[cat.key] && (site.skills[cat.key] as string[]).length > 0
-);
+const activeCategories = categories.filter(cat => site.skills[cat.key] && (site.skills[cat.key] as string[]).length > 0);
 ---
-
-<section
-  id="skills"
-  class="py-16 sm:py-24 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800"
->
+<section id="skills" class="py-16 sm:py-24 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
   <div class="max-w-3xl mx-auto px-6">
-    <h2
-      class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-12"
-    >
-      Technical Skills
-    </h2>
+    <h2 data-i18n="skills.title" class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-12">{translations.en.skills.title}</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
-      {
-        activeCategories.map((cat) => (
-          <div>
-            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
-              {cat.label}
-            </h3>
-            <div class="flex flex-wrap gap-2">
-              {(site.skills[cat.key] as string[]).map((skill) => (
-                <span class="inline-flex px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-sm font-medium hover:bg-blue-50 dark:hover:bg-blue-950 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
-        ))
-      }
+      {activeCategories.map(cat => <div>
+        <h3 data-i18n={`skills.categories.${cat.labelKey}`} class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">{translations.en.skills.categories[cat.labelKey]}</h3>
+        <div class="flex flex-wrap gap-2">{(site.skills[cat.key] as string[]).map(skill => <span class="inline-flex px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded text-sm font-medium hover:bg-blue-50 dark:hover:bg-blue-950 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">{skill}</span>)}</div>
+      </div>)}
     </div>
   </div>
 </section>
