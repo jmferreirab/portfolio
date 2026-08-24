@@ -1,0 +1,2 @@
+import {getRelativeLocaleUrl} from 'astro:i18n'; import type {Locale} from './ui';
+export const locales:Locale[]=['en','es']; export const getLocaleUrl=(locale:Locale)=>getRelativeLocaleUrl(locale,'');

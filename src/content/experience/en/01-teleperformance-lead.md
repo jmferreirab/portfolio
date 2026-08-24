@@ -1,4 +1,5 @@
 ---
+locale: en
 company: Teleperformance
 role: Lead Software Developer
 startDate: 2021-03-01
@@ -12,16 +13,6 @@ highlights:
   - Built chatbot prototypes for Teams with Microsoft Azure AI services in hybrid cloud environments using C#
   - Collaborated with senior management to advise on project direction, scope, and protocols
   - Conducted technical interviews for more than 20 candidates to hire for senior developer roles
-technologies:
-  - Python
-  - JavaScript
-  - Django
-  - SQL Server
-  - Microsoft Graph
-  - Entra ID
-  - SSIS
-  - Azure AI
-  - C#
+technologies: [Python, JavaScript, Django, SQL Server, Microsoft Graph, Entra ID, SSIS, Azure AI, C#]
 ---
-
-Developed and maintained a production-grade distributed orchestration platform that managed ETL pipelines for enterprise operations. This role required end-to-end ownership of platform reliability, performance optimization, and feature development across multiple technology stacks.
+Developed and maintained a production-grade distributed orchestration platform that managed ETL pipelines for enterprise operations.
