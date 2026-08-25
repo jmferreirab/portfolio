@@ -1,0 +1,16 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { useTranslations, type Locale } from '../i18n/ui';
+
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const t = useTranslations(locale);
+const otherLocale = locale === 'en' ? 'es' : 'en';
+const targetUrl = getRelativeLocaleUrl(otherLocale, '');
+
+// get styles from props
+const { styles } = Astro.props;
+---
+
+<a href={targetUrl} lang={otherLocale} class={styles} id="lang-switcher">
+  {t.language.switch}
+</a>

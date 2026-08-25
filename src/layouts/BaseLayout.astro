@@ -66,13 +66,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       if (darkTheme) document.documentElement.classList.add('dark');
     </script>
 
+    <!-- Recover scroll -->
+    <script is:inline>
+      history.scrollRestoration = 'manual';
+      const scrollY = sessionStorage.getItem('scrollY');
+      if (scrollY) {
+        // Delay until the next frame to ensure the page has rendered before scrolling
+        requestAnimationFrame(() => {
+          window.scrollTo(0, scrollY);
+          sessionStorage.removeItem('scrollY');
+        });
+      }
+    </script>
+
     <title>{title}</title>
   </head>
   <body class="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
     <slot />
-    <script>
-      import { initDarkMode } from '../scripts/dark-mode';
-      initDarkMode();
-    </script>
+    <script src="../scripts/initialize.ts"></script>
   </body>
 </html>

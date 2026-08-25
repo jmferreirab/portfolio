@@ -6,7 +6,10 @@ export default defineConfig({
   integrations: [],
   vite: { plugins: [tailwindcss()] },
   compressHTML: true,
-  prefetch: true,
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: 'viewport',
+  },
   i18n: {
     locales: ['en', 'es'],
     defaultLocale: 'en',
