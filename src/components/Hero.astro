@@ -1,11 +1,7 @@
 ---
 import { site } from '../data/site';
-
-const navItems = [
-  { label: 'Email', href: `mailto:${site.email}`, icon: 'envelope' },
-  { label: 'GitHub', href: site.github, icon: 'github' },
-  { label: 'LinkedIn', href: site.linkedin, icon: 'linkedin' },
-];
+import { useTranslations, type Locale } from '../i18n/ui';
+const t = useTranslations((Astro.currentLocale ?? 'en') as Locale);
 ---
 
 <section class="py-16 sm:py-24 bg-white dark:bg-gray-950">
@@ -27,15 +23,13 @@ const navItems = [
       <p
         class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl"
       >
-        <strong>Python specialist</strong> with 5+ years of experience developing
-        data-intensive systems.
+        <strong>{t.hero.specialist}</strong>
+        {t.hero.specialistText}
       </p>
       <p
         class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed max-w-2xl"
       >
-        I am focused on building software that is reliable, secure, and actually
-        enjoyable to use. I pay close attention to details, and strongly believe
-        that working closely with users is critical to build better products.
+        {t.hero.paragraph}
       </p>
     </div>
 
@@ -44,7 +38,7 @@ const navItems = [
         href={`mailto:${site.email}`}
         class="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
       >
-        <span>Get in touch</span>
+        <span>{t.hero.getInTouch}</span>
         <span>→</span>
       </a>
       <a

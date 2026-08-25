@@ -1,18 +1,20 @@
 ---
 import { site } from '../data/site';
-
+import { useTranslations, type Locale } from '../i18n/ui';
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const t = useTranslations(locale);
 type SkillCategory = keyof typeof site.skills;
 
-const categories: { key: SkillCategory; label: string }[] = [
-  { key: 'languages', label: 'Languages' },
-  { key: 'backend', label: 'Backend' },
-  { key: 'databases', label: 'Databases' },
-  { key: 'infrastructure', label: 'Infrastructure' },
-  { key: 'cloud', label: 'Cloud Services' },
-  { key: 'tools', label: 'Tools & Platforms' },
-  { key: 'testing', label: 'Testing' },
-  { key: 'ai', label: 'AI & Generative Tools' },
-];
+const categories = [
+  { key: 'languages', label: t.skills.languages },
+  { key: 'backend', label: t.skills.backend },
+  { key: 'databases', label: t.skills.databases },
+  { key: 'infrastructure', label: t.skills.infrastructure },
+  { key: 'cloud', label: t.skills.cloud },
+  { key: 'tools', label: t.skills.tools },
+  { key: 'testing', label: t.skills.testing },
+  { key: 'ai', label: t.skills.ai },
+] satisfies { key: SkillCategory; label: string }[];
 
 // Filter out empty categories
 const activeCategories = categories.filter(
@@ -28,7 +30,7 @@ const activeCategories = categories.filter(
     <h2
       class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-12"
     >
-      Technical Skills
+      {t.skills.title}
     </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
       {

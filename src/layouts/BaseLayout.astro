@@ -1,25 +1,35 @@
 ---
 import { site } from '../data/site';
+import { getAbsoluteLocaleUrl } from 'astro:i18n';
+import { useTranslations, type Locale } from '../i18n/ui';
 import '../styles/global.css';
 
 interface Props {
+  locale: Locale;
   title?: string;
   description?: string;
 }
-
-const { title = site.name, description = site.description } = Astro.props;
+const { locale, title = site.name, description } = Astro.props;
+const t = useTranslations(locale);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={description} />
+    <meta name="description" content={description ?? t.description} />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href={canonicalURL} />
+    <link rel="alternate" hreflang="en" href={getAbsoluteLocaleUrl('en', '')} />
+    <link rel="alternate" hreflang="es" href={getAbsoluteLocaleUrl('es', '')} />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={getAbsoluteLocaleUrl('en', '')}
+    />
     <link
       rel="icon"
       type="image/svg+xml"
@@ -28,21 +38,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={description ?? t.description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:site_name" content={site.name} />
 
     <!-- Twitter Card -->
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={description ?? t.description} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Preconnect to external services -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-    <!-- Dark mode inline script to prevent white flash -->
+    <!-- Dark mode inline script to prevent white flash on first load -->
     <script is:inline>
       const STORAGE_KEY = 'portfolio-theme-preference';
 
@@ -51,7 +61,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       const mode = parsed?.mode;
       const darkTheme =
         mode === 'dark' ||
-        (mode !== 'dark' &&
+        (mode === null &&
           window.matchMedia('(prefers-color-scheme: dark)').matches);
       if (darkTheme) document.documentElement.classList.add('dark');
     </script>
