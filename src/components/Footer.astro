@@ -1,7 +1,10 @@
 ---
 import { site } from '../data/site';
 import ChevronDoubleUp from '../icons/ChevronDoubleUp.astro';
+import { useTranslations, type Locale } from '../i18n/ui';
 
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const t = useTranslations(locale);
 const currentYear = new Date().getFullYear();
 ---
 
@@ -20,32 +23,32 @@ const currentYear = new Date().getFullYear();
           {site.name}
         </h3>
         <p class="text-sm leading-relaxed">
-          Senior Software Engineer specializing in distributed systems and data infrastructure.
+          {t.footer.description}
         </p>
       </div>
       <div>
         <h3 class="font-bold text-white dark:text-gray-100 mb-4">
-          Quick Links
+          {t.footer.quickLinks}
         </h3>
         <ul class="space-y-2 text-sm">
           <li>
-            <a href="#about" class="hover:text-white dark:hover:text-gray-200 transition-colors">About</a>
+            <a href="#about" class="hover:text-white dark:hover:text-gray-200 transition-colors">{t.nav.about}</a>
           </li>
           <li>
-            <a href="#experience" class="hover:text-white dark:hover:text-gray-200 transition-colors">Experience</a>
+            <a href="#experience" class="hover:text-white dark:hover:text-gray-200 transition-colors">{t.nav.experience}</a>
           </li>
           <li>
-            <a href="#work" class="hover:text-white dark:hover:text-gray-200 transition-colors">Work</a>
+            <a href="#work" class="hover:text-white dark:hover:text-gray-200 transition-colors">{t.nav.work}</a>
           </li>
           <li>
-            <a href="#contact" class="hover:text-white dark:hover:text-gray-200 transition-colors">Contact</a>
+            <a href="#contact" class="hover:text-white dark:hover:text-gray-200 transition-colors">{t.nav.contact}</a>
           </li>
         </ul>
       </div>
     </div>
     <div class="border-t border-gray-800 dark:border-gray-800 pt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm">
       <p>
-        © {currentYear} {site.name}. All rights reserved.
+        © {currentYear} {site.name}. {t.footer.rights}
       </p>
       <div class="flex gap-6">
         <a href={site.github} target="_blank" rel="noopener noreferrer" class="hover:text-white dark:hover:text-gray-200 transition-colors">

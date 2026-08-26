@@ -65,6 +65,9 @@ export const ui = {
       backToTop: 'Back to top',
       rights: 'All rights reserved.',
     },
+    common: {
+      themeToggle: 'Switch to dark mode',
+    },
   },
   es: {
     role: 'Ingeniero de Software Senior',
@@ -131,6 +134,9 @@ export const ui = {
       quickLinks: 'Enlaces rápidos',
       backToTop: 'Volver arriba',
       rights: 'Todos los derechos reservados.',
+    },
+    common: {
+      themeToggle: 'Cambiar al modo oscuro',
     },
   },
 } as const;
