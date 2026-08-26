@@ -73,7 +73,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       if (scrollY) {
         // Delay until the next frame to ensure the page has rendered before scrolling
         requestAnimationFrame(() => {
-          window.scrollTo(0, scrollY);
+          window.scrollTo({top:scrollY, behavior: "instant"});
           sessionStorage.removeItem('scrollY');
         });
       }
