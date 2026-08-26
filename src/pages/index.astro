@@ -1,0 +1,9 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+const href = getRelativeLocaleUrl('en', '');
+---
+
+<script is:inline define:vars={{ href }}>
+  window.location.replace(href);
+</script>
+<meta http-equiv="refresh" content={`0;url=${href}`} />
