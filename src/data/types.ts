@@ -1,23 +1,29 @@
+import type { Locale } from "../i18n/ui";
+
 export interface Experience {
   company: string;
-  role: string;
   startDate: Date;
   endDate?: Date;
-  location: string;
-  employmentType?: string;
-  summary: string;
-  highlights: string[];
   technologies: string[];
+  translations: Record<Locale, {
+    location: string;
+    role: string;
+    employmentType?: string;
+    summary: string;
+    highlights: string[];
+  }>;
 }
 
 export interface Project {
-  title: string;
-  summary: string;
-  problem: string;
-  solution: string;
-  result?: string;
   technologies: string[];
   repository?: string;
   demo?: string;
   featured?: boolean;
+  translations: Record<Locale, {
+    title: string;
+    summary: string;
+    problem: string;
+    solution: string;
+    result?: string;
+  }>;
 }

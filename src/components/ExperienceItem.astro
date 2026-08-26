@@ -1,4 +1,6 @@
 ---
+import { useTranslations, type Locale } from '../i18n/ui';
+
 interface Props {
   company: string;
   role: string;
@@ -21,8 +23,11 @@ const {
   technologies,
 } = Astro.props;
 
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const t = useTranslations(locale);
+
 const formatDate = (date: Date) => {
-  return new Intl.DateTimeFormat('en-US', {
+  return new Intl.DateTimeFormat(locale, {
     year: 'numeric',
     month: 'short',
   }).format(date);
@@ -30,7 +35,7 @@ const formatDate = (date: Date) => {
 
 const dateRange = endDate
   ? `${formatDate(startDate)} - ${formatDate(endDate)}`
-  : `${formatDate(startDate)} - Present`;
+  : `${formatDate(startDate)} - ${t.experience.present}`;
 ---
 
 <div

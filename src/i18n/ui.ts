@@ -33,7 +33,7 @@ export const ui = {
     },
     experience: { title: 'Experience', present: 'Present' },
     projects: {
-      title: 'Selected Technical Work',
+      title: 'Past Projects',
       problem: 'Problem',
       solution: 'Solution',
       result: 'Result',
@@ -100,7 +100,7 @@ export const ui = {
     },
     experience: { title: 'Experiencia', present: 'Actualidad' },
     projects: {
-      title: 'Trabajo técnico seleccionado',
+      title: 'Proyectos anteriores',
       problem: 'Problema',
       solution: 'Solución',
       result: 'Resultado',

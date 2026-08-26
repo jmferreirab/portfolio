@@ -1,6 +1,10 @@
 ---
 import { experienceData } from '../data/collections';
+import { useTranslations, type Locale } from '../i18n/ui';
 import ExperienceItem from './ExperienceItem.astro';
+
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const t = useTranslations(locale);
 
 // Sort by start date descending (most recent first)
 const sortedEntries = [...experienceData].sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
@@ -9,21 +13,24 @@ const sortedEntries = [...experienceData].sort((a, b) => b.startDate.getTime() -
 <section id="experience" class="py-16 sm:py-24 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
   <div class="max-w-3xl mx-auto px-6">
     <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-12">
-      Experience
+      {t.experience.title}
     </h2>
     <div class="space-y-8">
-      {sortedEntries.map(entry => (
-        <ExperienceItem
-          company={entry.company}
-          role={entry.role}
-          location={entry.location}
-          startDate={entry.startDate}
-          endDate={entry.endDate}
-          summary={entry.summary}
-          highlights={entry.highlights}
-          technologies={entry.technologies}
-        />
-      ))}
+      {sortedEntries.map(entry => {
+        const trans = entry.translations[locale];
+        return (
+          <ExperienceItem
+            company={entry.company}
+            role={trans.role}
+            location={trans.location}
+            startDate={entry.startDate}
+            endDate={entry.endDate}
+            summary={trans.summary}
+            highlights={trans.highlights}
+            technologies={entry.technologies}
+          />
+        );
+      })}
     </div>
   </div>
 </section>

@@ -1,4 +1,6 @@
 ---
+import { useTranslations, type Locale } from '../i18n/ui';
+
 interface Props {
   title: string;
   summary: string;
@@ -11,6 +13,8 @@ interface Props {
 }
 
 const { title, summary, problem, solution, result, technologies, repository, demo } = Astro.props;
+const locale = (Astro.currentLocale ?? 'en') as Locale;
+const t = useTranslations(locale);
 ---
 
 <article class="pb-10 border-b border-gray-200 dark:border-gray-800 last:border-b-0">
@@ -24,13 +28,13 @@ const { title, summary, problem, solution, result, technologies, repository, dem
 
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6 text-sm">
     <div>
-      <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Problem</h4>
+      <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">{t.projects.problem}</h4>
       <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
         {problem}
       </p>
     </div>
     <div>
-      <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Solution</h4>
+      <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">{t.projects.solution}</h4>
       <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
         {solution}
       </p>
@@ -39,7 +43,7 @@ const { title, summary, problem, solution, result, technologies, repository, dem
 
   {result && (
     <div class="mb-6 text-sm">
-      <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Result</h4>
+      <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">{t.projects.result}</h4>
       <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
         {result}
       </p>
