@@ -1,13 +1,12 @@
 ---
-import { getCollection } from 'astro:content';
+import { projectData } from '../data/collections';
 import ProjectCard from './ProjectCard.astro';
 
-const projects = await getCollection('projects');
 // Sort by featured status and then by title
-const sortedProjects = projects.sort((a, b) => {
-  if (a.data.featured && !b.data.featured) return -1;
-  if (!a.data.featured && b.data.featured) return 1;
-  return b.data.title.localeCompare(a.data.title);
+const sortedProjects = [...projectData].sort((a, b) => {
+  if (a.featured && !b.featured) return -1;
+  if (!a.featured && b.featured) return 1;
+  return b.title.localeCompare(a.title);
 });
 ---
 
@@ -25,14 +24,14 @@ const sortedProjects = projects.sort((a, b) => {
       {
         sortedProjects.map((project) => (
           <ProjectCard
-            title={project.data.title}
-            summary={project.data.summary}
-            problem={project.data.problem}
-            solution={project.data.solution}
-            result={project.data.result}
-            technologies={project.data.technologies}
-            repository={project.data.repository}
-            demo={project.data.demo}
+            title={project.title}
+            summary={project.summary}
+            problem={project.problem}
+            solution={project.solution}
+            result={project.result}
+            technologies={project.technologies}
+            repository={project.repository}
+            demo={project.demo}
           />
         ))
       }
