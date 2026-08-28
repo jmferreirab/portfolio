@@ -21,7 +21,7 @@ export const experienceData: Experience[] = [
         role: 'Lead Software Developer',
         employmentType: 'Full-time',
         location: "Bogota, Colombia (Remote)",
-        summary: 'Led development and maintenance of a distributed orchestration platform supporting over 2000 ETL pipelines',
+        summary: 'Led the development and operation of a distributed system that orchestrated 2000+ automation flows for 5 years, while taking ownership of technical direction, change management, and system security.',
         highlights: [
           'Developed and maintained a distributed orchestration platform using Python, Javascript, Django, SQL Server, Microsoft Graph and Entra ID to support over 2000 ETL pipelines for 5+ years',
           'Led 6 company-wide projects to automatically deliver KPI reports over email, automating reporting workflows with Python and SSIS',
@@ -34,7 +34,7 @@ export const experienceData: Experience[] = [
         role: 'Desarrollador de Software Lead',
         employmentType: 'Tiempo completo',
         location: "Bogotá, Colombia (Remoto)",
-        summary: 'Lideré el desarrollo y mantenimiento de una plataforma de orquestación distribuida que soporta más de 2000 pipelines de ETL',
+        summary: 'Lideré el desarrollo y la operación de un sistema distribuido que orquestaba 2000+ flujos de automatización por 5 años, asumiendo también la dirección técnica, gestión de cambios, y seguridad del sistema.',
         highlights: [
           'Desarrollé y mantuve una plataforma de orquestación distribuida utilizando Python, Javascript, Django, SQL Server, Microsoft Graph y Entra ID para soportar más de 2000 pipelines de ETL durante más de 5 años',
           'Lideré 6 proyectos a nivel de empresa para entregar automáticamente reportes de KPI por correo electrónico, automatizando los flujos de reporte con Python y SSIS',
@@ -63,7 +63,7 @@ export const experienceData: Experience[] = [
         role: 'Data Analyst',
         employmentType: 'Full-time',
         location: 'Bogota, Colombia',
-        summary: 'Built data visualization and automation projects using SQL Server, SSIS, Power BI, and Python',
+        summary: 'Built data, reporting, and automation solutions that leverage software development and analytics to drastically reduce human error in repetitive workflows.',
         highlights: [
           'Built 10+ data visualization and automation projects using SQL Server, SSIS, Power BI, Excel, and Python',
           'Designed and implemented automated reporting solutions that reduced manual reporting workload',
@@ -75,7 +75,7 @@ export const experienceData: Experience[] = [
         role: 'Analista de Datos',
         employmentType: 'Tiempo completo',
         location: 'Bogotá, Colombia',
-        summary: 'Construí proyectos de visualización de datos y automatización utilizando SQL Server, SSIS, Power BI y Python',
+        summary: 'Desarrollé soluciones de datos, reportería y automatización que combinaron el desarrollo de software y la analítica para reducir drásticamente el error humano en flujos de trabajo repetitivos.',
         highlights: [
           'Construí más de 10 proyectos de visualización de datos y automatización utilizando SQL Server, SSIS, Power BI, Excel y Python',
           'Diseñé e implementé soluciones de reporte automatizadas que redujeron la carga de trabajo de reporte manual',
