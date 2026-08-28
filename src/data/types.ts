@@ -10,7 +10,6 @@ export interface Experience {
     role: string;
     employmentType?: string;
     summary: string;
-    highlights: string[];
   }>;
 }
 
