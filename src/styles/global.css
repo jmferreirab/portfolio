@@ -75,11 +75,13 @@ section {
     transition-duration: 0ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Globally disable view transition default text fade */
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) {
     animation: none !important;
-  }
 }
 
 @view-transition {
