@@ -23,7 +23,6 @@ html.dark {
 body {
   @apply text-gray-900 bg-white dark:text-gray-100 dark:bg-gray-950;
   font-feature-settings: 'kern';
-  transition: background-color 0.3s, color 0.3s;
 }
 
 /* Smooth focus states for accessibility */
@@ -34,15 +33,6 @@ body {
 /* Remove focus outline for mouse users, keep for keyboard */
 *:focus:not(:focus-visible) {
   @apply outline-none;
-}
-
-/* Smooth transitions for dark mode */
-header {
-  @apply transition-colors duration-300;
-}
-
-section {
-  @apply transition-colors duration-300;
 }
 
 /* Responsive text sizing for better hierarchy */
@@ -77,11 +67,11 @@ section {
   }
 }
 
-/* Globally disable view transition default text fade */
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
+/* Fully disable view transition default text fade */
+::view-transition-group(*),
+::view-transition-old(*),
+::view-transition-new(*) {
+  animation: none !important;
 }
 
 @view-transition {
