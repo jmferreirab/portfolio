@@ -22,7 +22,7 @@ html.dark {
 }
 
 body {
-  @apply text-gray-900 bg-white dark:text-gray-100 dark:bg-gray-950;
+  @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
   font-feature-settings: 'kern';
 }
 

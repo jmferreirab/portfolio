@@ -11,15 +11,8 @@ interface Props {
   technologies: string[];
 }
 
-const {
-  company,
-  role,
-  location,
-  startDate,
-  endDate,
-  summary,
-  technologies,
-} = Astro.props;
+const { company, role, location, startDate, endDate, summary, technologies } =
+  Astro.props;
 
 const locale = (Astro.currentLocale ?? 'en') as Locale;
 const t = useTranslations(locale);
@@ -37,11 +30,11 @@ const dateRange = endDate
 ---
 
 <div
-  class="pb-12 border-b border-gray-200 dark:border-gray-800 last:border-b-0"
+  class="border-b border-gray-200 pb-12 last:border-b-0 dark:border-gray-800"
 >
   <div class="mb-4">
     <div
-      class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2"
+      class="mb-2 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between"
     >
       <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">
         {company}
@@ -51,22 +44,22 @@ const dateRange = endDate
       </span>
     </div>
     <div
-      class="flex flex-col sm:flex-row sm:items-center gap-2 text-lg text-gray-700 dark:text-gray-300"
+      class="flex flex-col gap-2 text-lg text-gray-700 sm:flex-row sm:items-center dark:text-gray-300"
     >
       <span class="font-semibold">{role}</span>
-      <span class="hidden sm:inline text-gray-400 dark:text-gray-600">·</span>
+      <span class="hidden text-gray-400 sm:inline dark:text-gray-600">·</span>
       <span class="text-gray-600 dark:text-gray-400">{location}</span>
     </div>
   </div>
 
-  <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+  <p class="mb-4 leading-relaxed text-gray-700 dark:text-gray-300">
     {summary}
   </p>
 
   <div class="flex flex-wrap gap-2">
     {
       technologies.map((tech) => (
-        <span class="inline-flex px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 rounded text-sm font-medium">
+        <span class="inline-flex rounded bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 dark:bg-blue-950 dark:text-blue-300">
           {tech}
         </span>
       ))

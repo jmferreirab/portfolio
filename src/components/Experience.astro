@@ -7,29 +7,38 @@ const locale = (Astro.currentLocale ?? 'en') as Locale;
 const t = useTranslations(locale);
 
 // Sort by start date descending (most recent first)
-const sortedEntries = [...experienceData].sort((a, b) => b.startDate.getTime() - a.startDate.getTime());
+const sortedEntries = [...experienceData].sort(
+  (a, b) => b.startDate.getTime() - a.startDate.getTime()
+);
 ---
 
-<section id="experience" class="py-16 sm:py-24 bg-white dark:bg-gray-950 border-t border-gray-200 dark:border-gray-800">
-  <div class="max-w-3xl mx-auto px-6">
-    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-12">
+<section
+  id="experience"
+  class="border-t border-gray-200 bg-white py-16 sm:py-24 dark:border-gray-800 dark:bg-gray-950"
+>
+  <div class="mx-auto max-w-3xl px-6">
+    <h2
+      class="mb-12 text-3xl font-bold text-gray-900 sm:text-4xl dark:text-gray-100"
+    >
       {t.experience.title}
     </h2>
     <div class="space-y-8">
-      {sortedEntries.map(entry => {
-        const trans = entry.translations[locale];
-        return (
-          <ExperienceItem
-            company={entry.company}
-            role={trans.role}
-            location={trans.location}
-            startDate={entry.startDate}
-            endDate={entry.endDate}
-            summary={trans.summary}
-            technologies={entry.technologies}
-          />
-        );
-      })}
+      {
+        sortedEntries.map((entry) => {
+          const trans = entry.translations[locale];
+          return (
+            <ExperienceItem
+              company={entry.company}
+              role={trans.role}
+              location={trans.location}
+              startDate={entry.startDate}
+              endDate={entry.endDate}
+              summary={trans.summary}
+              technologies={entry.technologies}
+            />
+          );
+        })
+      }
     </div>
   </div>
 </section>
