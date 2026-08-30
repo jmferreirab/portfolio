@@ -10,7 +10,7 @@ const t = useTranslations(locale);
 const sortedProjects = [...projectData].sort((a, b) => {
   if (a.featured && !b.featured) return -1;
   if (!a.featured && b.featured) return 1;
-  return b.translations[locale].title.localeCompare(a.translations[locale].title);
+  return b.translations['en'].title.localeCompare(a.translations['en'].title);
 });
 ---
 
@@ -24,14 +24,13 @@ const sortedProjects = [...projectData].sort((a, b) => {
     >
       {t.projects.title}
     </h2>
-    <div class="space-y-10">
+    <div class="space-y-4" data-project-accordion>
       {
         sortedProjects.map((project) => {
           const trans = project.translations[locale];
           return (
             <ProjectCard
               title={trans.title}
-              summary={trans.summary}
               problem={trans.problem}
               solution={trans.solution}
               result={trans.result}
@@ -45,3 +44,43 @@ const sortedProjects = [...projectData].sort((a, b) => {
     </div>
   </div>
 </section>
+
+<script>
+  const accordionItems = document.querySelectorAll(
+    '[data-project-accordion-item]'
+  );
+
+  accordionItems.forEach((item) => {
+    const trigger = item.querySelector('[data-project-trigger]');
+    const panel = item.querySelector('[data-project-panel]');
+    const icon = item.querySelector('[data-project-icon]');
+
+    const setState = (isOpen: boolean) => {
+      item.classList.toggle('is-open', isOpen);
+      item.setAttribute('data-open', String(isOpen));
+      trigger?.setAttribute('aria-expanded', String(isOpen));
+      panel?.classList.toggle('is-open', isOpen);
+      panel?.classList.toggle('is-closed', !isOpen);
+      icon?.classList.toggle('rotate-180', isOpen);
+    };
+
+    trigger?.addEventListener('click', () => {
+      const shouldOpen = item.getAttribute('data-open') !== 'true';
+
+      accordionItems.forEach((otherItem) => {
+        const otherTrigger = otherItem.querySelector('[data-project-trigger]');
+        const otherPanel = otherItem.querySelector('[data-project-panel]');
+        const otherIcon = otherItem.querySelector('[data-project-icon]');
+
+        otherItem.classList.remove('is-open');
+        otherItem.setAttribute('data-open', 'false');
+        otherTrigger?.setAttribute('aria-expanded', 'false');
+        otherPanel?.classList.remove('is-open');
+        otherPanel?.classList.add('is-closed');
+        otherIcon?.classList.remove('rotate-180');
+      });
+
+      setState(shouldOpen);
+    });
+  });
+</script>

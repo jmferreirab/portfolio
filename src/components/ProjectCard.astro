@@ -3,7 +3,6 @@ import { useTranslations, type Locale } from '../i18n/ui';
 
 interface Props {
   title: string;
-  summary: string;
   problem: string;
   solution: string;
   result?: string;
@@ -12,95 +11,140 @@ interface Props {
   demo?: string;
 }
 
-const {
-  title,
-  summary,
-  problem,
-  solution,
-  result,
-  technologies,
-  repository,
-  demo,
-} = Astro.props;
+const { title, problem, solution, result, technologies, repository, demo } =
+  Astro.props;
 const locale = (Astro.currentLocale ?? 'en') as Locale;
 const t = useTranslations(locale);
 ---
 
 <article
-  class="pb-10 border-b border-gray-200 dark:border-gray-800 last:border-b-0"
+  data-project-accordion-item
+  data-open="false"
+  class="project-accordion group flex flex-col gap-3"
 >
-  <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-    {title}
-  </h3>
-
-  <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed text-lg">
-    {summary}
-  </p>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6 text-sm">
-    <div>
-      <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-        {t.projects.problem}
-      </h4>
-      <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-        {problem}
-      </p>
+  <button
+    type="button"
+    data-project-trigger
+    aria-expanded="false"
+    class="project-trigger flex w-full items-center justify-between gap-4 rounded-2xl border border-gray-200 bg-white/90 px-5 py-5 text-left shadow-sm transition-colors duration-200 group-[.is-open]:border-blue-200 hover:border-blue-200 hover:shadow-md dark:border-gray-800 dark:bg-gray-950/80 dark:group-[.is-open]:border-blue-500/60 dark:hover:border-blue-500/60 sm:px-6"
+  >
+    <div class="min-w-0">
+      <h3
+        class="text-lg font-bold text-gray-900 transition-colors duration-200 group-hover:text-blue-700 dark:text-gray-100 dark:group-hover:text-blue-300 sm:text-xl"
+      >
+        {title}
+      </h3>
     </div>
-    <div>
-      <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-        {t.projects.solution}
-      </h4>
-      <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-        {solution}
-      </p>
+
+    <span class="flex h-10 w-10 shrink-0 items-center justify-center">
+      <svg
+        data-project-icon
+        aria-hidden="true"
+        viewBox="0 0 20 20"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        class="h-5 w-5 transition-transform duration-300 ease-out"
+      >
+        <path
+          d="M5 7.5L10 12.5L15 7.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+    </span>
+  </button>
+
+  <div data-project-panel class="accordion-panel is-closed">
+    <div
+      class="project-panel overflow-hidden rounded-2xl border border-gray-200 bg-white/90 shadow-sm dark:border-gray-800 dark:bg-gray-900/80 sm:px-6"
+    >
+      <div class="px-5 pb-6 pt-5 sm:px-0">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6 text-sm">
+          <div>
+            <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              {t.projects.problem}
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+              {problem}
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+              {t.projects.solution}
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+              {solution}
+            </p>
+          </div>
+        </div>
+
+        {
+          result && (
+            <div class="mb-6 text-sm">
+              <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                {t.projects.result}
+              </h4>
+              <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                {result}
+              </p>
+            </div>
+          )
+        }
+
+        <div class="flex flex-wrap gap-2 mb-4">
+          {
+            technologies.map((tech) => (
+              <span class="inline-flex px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 rounded sm:text-sm font-medium text-xs">
+                {tech}
+              </span>
+            ))
+          }
+        </div>
+
+        {
+          (repository || demo) && (
+            <div class="flex flex-wrap gap-4 border-t border-gray-200 pt-4 dark:border-gray-800">
+              {repository && (
+                <a
+                  href={repository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  Repository →
+                </a>
+              )}
+              {demo && (
+                <a
+                  href={demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                >
+                  Demo →
+                </a>
+              )}
+            </div>
+          )
+        }
+      </div>
     </div>
   </div>
-
-  {
-    result && (
-      <div class="mb-6 text-sm">
-        <h4 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">
-          {t.projects.result}
-        </h4>
-        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">{result}</p>
-      </div>
-    )
-  }
-
-  <div class="flex flex-wrap gap-2 mb-4">
-    {
-      technologies.map((tech) => (
-        <span class="inline-flex px-3 py-1 bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 rounded text-sm font-medium">
-          {tech}
-        </span>
-      ))
-    }
-  </div>
-
-  {
-    (repository || demo) && (
-      <div class="flex flex-wrap gap-4 pt-4 border-t border-gray-200 dark:border-gray-800">
-        {repository && (
-          <a
-            href={repository}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
-          >
-            Repository →
-          </a>
-        )}
-        {demo && (
-          <a
-            href={demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
-          >
-            Demo →
-          </a>
-        )}
-      </div>
-    )
-  }
 </article>
+
+<style>
+  .accordion-panel {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-0.5rem);
+    transition: all 0.3s cubic-bezier(0, 0, 0.3, 1) !important;
+  }
+
+  .accordion-panel.is-open {
+    max-height: 2000px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s cubic-bezier(0.7, 0, 0.3, 1) !important;
+  }
+</style>
