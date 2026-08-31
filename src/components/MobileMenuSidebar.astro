@@ -11,10 +11,12 @@ const { navItems } = Astro.props;
 
 <div
   id="mobile-menu"
-  class="fixed top-0 right-0 bottom-0 z-60 w-70 translate-x-full transform border-gray-200 bg-white shadow-lg transition-transform duration-300 ease-in-out sm:hidden dark:border-gray-800 dark:bg-gray-950"
+  class="fixed top-0 right-0 bottom-0 z-60 w-70 translate-x-full transform border-gray-200 bg-white shadow-lg transition-transform duration-300 ease-in-out md:hidden dark:border-gray-800 dark:bg-gray-950"
 >
   <div class="flex h-full flex-col py-4 pr-8 pl-4">
-    <div class="flex items-center border-b border-gray-200 pb-5 text-end">
+    <div
+      class="flex items-center border-b border-gray-200 pb-5 text-end dark:border-gray-800"
+    >
       <button
         id="mobile-menu-close"
         class="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
@@ -59,7 +61,7 @@ const { navItems } = Astro.props;
 
 <div
   id="mobile-menu-overlay"
-  class="pointer-events-none fixed top-0 right-0 bottom-0 left-0 z-55 bg-black/50 opacity-0 backdrop-brightness-90 transition-opacity duration-300 sm:hidden"
+  class="pointer-events-none fixed top-0 right-0 bottom-0 left-0 z-55 bg-black/50 opacity-0 backdrop-brightness-90 transition-opacity duration-300 md:hidden"
 >
 </div>
 
