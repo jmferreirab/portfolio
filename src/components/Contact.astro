@@ -1,11 +1,12 @@
 ---
 import { site } from '../data/site';
 import { useTranslations, type Locale } from '../i18n/ui';
+import { SECTION_IDS } from '../constants/navigation';
 const t = useTranslations((Astro.currentLocale ?? 'en') as Locale);
 ---
 
 <section
-  id="contact"
+  id={SECTION_IDS.contact}
   class="border-t border-gray-200 bg-gray-50 py-16 sm:py-24 dark:border-gray-800 dark:bg-gray-900"
 >
   <div class="mx-auto max-w-3xl px-6 text-center">

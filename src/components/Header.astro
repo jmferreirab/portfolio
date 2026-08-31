@@ -2,16 +2,17 @@
 import { site } from '../data/site';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import { useTranslations, type Locale } from '../i18n/ui';
+import { SECTION_IDS } from '../constants/navigation';
 import LangSwitch from './LangSwitch.astro';
 
 const locale = (Astro.currentLocale ?? 'en') as Locale;
 const t = useTranslations(locale);
 const navItems = [
-  { label: t.nav.about, href: '#about' },
-  { label: t.nav.experience, href: '#experience' },
-  { label: t.nav.work, href: '#work' },
-  { label: t.nav.skills, href: '#skills' },
-  { label: t.nav.contact, href: '#contact' },
+  { label: t.nav.about, href: `#${SECTION_IDS.about}` },
+  { label: t.nav.experience, href: `#${SECTION_IDS.experience}` },
+  { label: t.nav.work, href: `#${SECTION_IDS.projects}` },
+  { label: t.nav.skills, href: `#${SECTION_IDS.skills}` },
+  { label: t.nav.contact, href: `#${SECTION_IDS.contact}` },
 ];
 const navItemStyle =
   'text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition-colors';

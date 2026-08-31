@@ -1,6 +1,7 @@
 ---
 import { projectData } from '../data/collections';
 import { useTranslations, type Locale } from '../i18n/ui';
+import { SECTION_IDS } from '../constants/navigation';
 import ProjectCard from './ProjectCard.astro';
 
 const locale = (Astro.currentLocale ?? 'en') as Locale;
@@ -15,7 +16,7 @@ const sortedProjects = [...projectData].sort((a, b) => {
 ---
 
 <section
-  id="work"
+  id={SECTION_IDS.projects}
   class="border-t border-gray-200 bg-gray-50 py-16 sm:py-24 dark:border-gray-800 dark:bg-gray-900"
 >
   <div class="mx-auto max-w-3xl px-6">

@@ -1,6 +1,7 @@
 ---
 import { site } from '../data/site';
 import { useTranslations, type Locale } from '../i18n/ui';
+import { SECTION_IDS } from '../constants/navigation';
 const locale = (Astro.currentLocale ?? 'en') as Locale;
 const t = useTranslations(locale);
 type SkillCategory = keyof typeof site.skills;
@@ -23,7 +24,7 @@ const activeCategories = categories.filter(
 ---
 
 <section
-  id="skills"
+  id={SECTION_IDS.skills}
   class="border-t border-gray-200 bg-white py-16 sm:py-24 dark:border-gray-800 dark:bg-gray-950"
 >
   <div class="mx-auto max-w-3xl px-6">

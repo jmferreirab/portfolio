@@ -1,6 +1,7 @@
 ---
 import { experienceData } from '../data/collections';
 import { useTranslations, type Locale } from '../i18n/ui';
+import { SECTION_IDS } from '../constants/navigation';
 import ExperienceItem from './ExperienceItem.astro';
 
 const locale = (Astro.currentLocale ?? 'en') as Locale;
@@ -13,7 +14,7 @@ const sortedEntries = [...experienceData].sort(
 ---
 
 <section
-  id="experience"
+  id={SECTION_IDS.experience}
   class="border-t border-gray-200 bg-white py-16 sm:py-24 dark:border-gray-800 dark:bg-gray-950"
 >
   <div class="mx-auto max-w-3xl px-6">
