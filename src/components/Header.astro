@@ -4,6 +4,7 @@ import { getRelativeLocaleUrl } from 'astro:i18n';
 import { useTranslations, type Locale } from '../i18n/ui';
 import { SECTION_IDS } from '../constants/navigation';
 import LangSwitch from './LangSwitch.astro';
+import MobileMenuSidebar from './MobileMenuSidebar.astro';
 
 const locale = (Astro.currentLocale ?? 'en') as Locale;
 const t = useTranslations(locale);
@@ -29,7 +30,7 @@ const navItemStyle =
       {site.name}
     </a>
     <div class="flex items-center gap-8">
-      <ul class="hidden items-center gap-8 sm:flex">
+      <ul class="hidden items-center gap-8 md:flex">
         {
           navItems.map((item) => (
             <li>
@@ -52,9 +53,14 @@ const navItemStyle =
         <span data-icon class="text-lg">◐</span>
       </button>
       <!-- Mobile menu indicator -->
-      <div class="text-gray-600 sm:hidden dark:text-gray-400">
+      <button
+        id="mobile-menu-button"
+        class="text-gray-600 hover:text-gray-900 focus:outline-none md:hidden dark:text-gray-400 dark:hover:text-gray-200"
+        aria-label="Toggle menu"
+      >
         <svg
-          class="h-6 w-6"
+          id="mobile-menu-icon"
+          class="size-6"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -67,7 +73,9 @@ const navItemStyle =
           >
           </path>
         </svg>
-      </div>
+      </button>
     </div>
   </nav>
 </header>
+
+<MobileMenuSidebar navItems={navItems} />

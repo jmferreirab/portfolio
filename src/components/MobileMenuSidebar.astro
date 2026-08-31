@@ -1,0 +1,92 @@
+---
+import { site } from '../data/site';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props {
+  navItems: { label: string; href: string }[];
+}
+
+const { navItems } = Astro.props;
+---
+
+<div
+  id="mobile-menu"
+  class="fixed top-0 right-0 bottom-0 z-60 w-70 translate-x-full transform border-gray-200 bg-white shadow-lg transition-transform duration-300 ease-in-out sm:hidden dark:border-gray-800 dark:bg-gray-950"
+>
+  <div class="flex h-full flex-col py-4 pr-8 pl-4">
+    <div class="flex items-center border-b border-gray-200 pb-5 text-end">
+      <button
+        id="mobile-menu-close"
+        class="p-2 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
+        aria-label="Close menu"
+      >
+        <svg
+          class="size-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <!-- <hr /> -->
+    <ul class="flex flex-col gap-6 pt-8 text-end">
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="text-lg font-medium text-gray-700 transition-colors hover:text-blue-600 dark:text-gray-300 dark:hover:text-blue-400"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="mt-auto pb-8 text-end">
+      <LangSwitch
+        styles="text-lg font-medium text-gray-700 dark:text-gray-300"
+      />
+    </div>
+  </div>
+</div>
+
+<div
+  id="mobile-menu-overlay"
+  class="pointer-events-none fixed top-0 right-0 bottom-0 left-0 z-55 bg-black/50 opacity-0 backdrop-brightness-90 transition-opacity duration-300 sm:hidden"
+>
+</div>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-button');
+  const closeBtn = document.getElementById('mobile-menu-close');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const menu = document.getElementById('mobile-menu');
+  const navLinks = document.querySelectorAll('#mobile-menu a');
+
+  const openMenu = () => {
+    menu?.classList.remove('translate-x-full');
+    overlay?.classList.remove('opacity-0', 'pointer-events-none');
+    overlay?.classList.add('opacity-100', 'pointer-events-auto');
+    document.body.classList.add('overflow-hidden');
+  };
+
+  const closeMenu = () => {
+    menu?.classList.add('translate-x-full');
+    overlay?.classList.remove('opacity-100', 'pointer-events-auto');
+    overlay?.classList.add('opacity-0', 'pointer-events-none');
+    document.body.classList.remove('overflow-hidden');
+  };
+
+  menuBtn?.addEventListener('click', openMenu);
+  closeBtn?.addEventListener('click', closeMenu);
+
+  overlay?.addEventListener('click', closeMenu);
+  navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+</script>
