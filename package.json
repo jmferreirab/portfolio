@@ -9,7 +9,9 @@
         "preview": "astro preview",
         "sync": "astro sync",
         "test:unit": "vitest",
-        "test:e2e": "playwright test"
+        "test:e2e": "playwright test --project=chromium",
+        "test:e2e:all": "playwright test",
+        "test-report": "playwright show-report"
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.3.3",
