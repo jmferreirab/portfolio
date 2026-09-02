@@ -15,11 +15,11 @@ interface ThemePreference {
   mode: ThemeMode;
 }
 
-function isThemeMode(value: unknown): value is ThemeMode {
+export function isThemeMode(value: unknown): value is ThemeMode {
   return value === 'light' || value === 'dark';
 }
 
-function getEffectiveTheme(): ThemeMode {
+export function getEffectiveTheme(): ThemeMode {
   const preference = getSavedPreference();
 
   if (preference) {
@@ -48,7 +48,7 @@ function applyTheme(theme: ThemeMode) {
 /**
  * Get user preference from localStorage
  */
-function getSavedPreference(): ThemePreference | null {
+export function getSavedPreference(): ThemePreference | null {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -66,7 +66,7 @@ function getSavedPreference(): ThemePreference | null {
 /**
  * Save user preference to localStorage
  */
-function savePreference(preference: ThemePreference) {
+export function savePreference(preference: ThemePreference) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(preference));
   } catch (e) {
