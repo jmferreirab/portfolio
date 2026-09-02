@@ -11,7 +11,7 @@ const { navItems } = Astro.props;
 
 <div
   id="mobile-menu"
-  class="fixed top-0 right-0 bottom-0 z-60 w-70 translate-x-full transform border-gray-200 bg-white shadow-lg transition-transform duration-300 ease-in-out md:hidden dark:border-gray-800 dark:bg-gray-950"
+  class="fixed top-0 right-0 bottom-0 z-60 w-70 translate-x-full transform invisible border-gray-200 bg-white shadow-lg transition-all duration-300 ease-in-out md:hidden dark:border-gray-800 dark:bg-gray-950"
 >
   <div class="flex h-full flex-col py-4 pr-8 pl-4">
     <div
@@ -73,14 +73,16 @@ const { navItems } = Astro.props;
   const navLinks = document.querySelectorAll('#mobile-menu a');
 
   const openMenu = () => {
-    menu?.classList.remove('translate-x-full');
+    menu?.classList.remove('translate-x-full', 'invisible');
+    menu?.classList.add('visible');
     overlay?.classList.remove('opacity-0', 'pointer-events-none');
     overlay?.classList.add('opacity-100', 'pointer-events-auto');
     document.body.classList.add('overflow-hidden');
   };
 
   const closeMenu = () => {
-    menu?.classList.add('translate-x-full');
+    menu?.classList.add('translate-x-full', 'invisible');
+    menu?.classList.remove('visible');
     overlay?.classList.remove('opacity-100', 'pointer-events-auto');
     overlay?.classList.add('opacity-0', 'pointer-events-none');
     document.body.classList.remove('overflow-hidden');
