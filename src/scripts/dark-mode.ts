@@ -100,13 +100,8 @@ function updateThemeButton(mode: ThemeMode) {
   const button = document.getElementById('theme-toggle-btn');
   if (!button) return;
 
-  const icon = button.querySelector('[data-icon]');
-
-  let newIcon = '◐';
   let newLabel =
     mode === 'dark' ? 'Switch to light mode' : 'Switch to dark mode';
-
-  if (icon) icon.textContent = newIcon;
 
   button.setAttribute('aria-label', newLabel);
   button.title = newLabel;

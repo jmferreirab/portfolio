@@ -5,6 +5,7 @@ import { useTranslations, type Locale } from '../i18n/ui';
 import { SECTION_IDS } from '../constants/navigation';
 import LangSwitch from './LangSwitch.astro';
 import MobileMenuSidebar from './MobileMenuSidebar.astro';
+import ContrastIcon from '../icons/Contrast.astro';
 
 const locale = (Astro.currentLocale ?? 'en') as Locale;
 const t = useTranslations(locale);
@@ -46,11 +47,11 @@ const navItemStyle =
       </ul>
       <button
         id="theme-toggle-btn"
-        class="rounded-lg p-2"
+        class="rounded-lg p-2 text-gray-700 dark:text-gray-200"
         aria-label={t.common.themeToggle}
         title={t.common.themeToggle}
       >
-        <span data-icon class="text-lg">◐</span>
+        <ContrastIcon data-icon class="size-5" />
       </button>
       <!-- Mobile menu indicator -->
       <button
