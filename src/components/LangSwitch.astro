@@ -11,6 +11,6 @@ const targetUrl = getRelativeLocaleUrl(otherLocale, '');
 const { styles } = Astro.props;
 ---
 
-<a href={targetUrl} lang={otherLocale} class={styles} id="lang-switcher">
+<a href={targetUrl} lang={otherLocale} class={styles} data-lang-switcher>
   {t.language.switch}
 </a>
