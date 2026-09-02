@@ -31,12 +31,12 @@ const t = useTranslations(locale);
     flex w-full items-center justify-between
     border-b-2 border-gray-200 bg-inherit
     px-5 py-5 text-left 
-    group-[.is-open]:border-blue-200 sm:px-6 
+    group-[.is-open]:border-blue-200 md:px-6 
     dark:border-gray-800 dark:bg-inherit dark:group-[.is-open]:border-blue-500/60 dark:hover:border-blue-500/60"
   >
     <div class="min-w-0 ">
       <h3
-        class="text-lg font-bold text-gray-900 transition-colors duration-200 group-hover:text-blue-700 sm:text-xl dark:text-gray-100 dark:group-hover:text-blue-300"
+        class="text-lg font-bold text-gray-900 transition-colors duration-200 group-hover:text-blue-700 md:text-xl dark:text-gray-100 dark:group-hover:text-blue-300"
       >
         {title}
       </h3>
@@ -61,9 +61,9 @@ const t = useTranslations(locale);
   </button>
 
   <div data-project-panel class="accordion-panel is-closed">
-    <div class="project-panel overflow-hidden shadow-sm sm:px-6">
-      <div class="px-5 pt-5 pb-6 sm:px-0">
-        <div class="mb-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+    <div class="project-panel overflow-hidden shadow-sm md:px-6">
+      <div class="px-5 pt-5 pb-6 md:px-0">
+        <div class="mb-6 grid grid-cols-1 gap-6 md:grid-cols-2">
           <div>
             <h4 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">
               {t.projects.problem}
