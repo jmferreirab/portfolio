@@ -37,6 +37,7 @@ export const site = {
       'Snyk',
       'SSIS',
       'WSL',
+      'Postman',
     ],
     cloud: [
       'AWS Lambda',
@@ -48,6 +49,7 @@ export const site = {
       'Microsoft Graph',
     ],
     ai: [
+      'Claude Code',
       'GitHub Copilot',
       'Ollama',
       'Stable Diffusion',
@@ -55,6 +57,6 @@ export const site = {
       'Opencv',
     ],
 
-    testing: ['Pytest', 'Unittest', 'Selenium', 'Postman'],
+    testing: ['Pytest', 'Unittest', 'Playwright', 'Selenium'],
   },
 };
