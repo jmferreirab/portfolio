@@ -1,8 +1,13 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
+
+const site = process.env.VERCEL
+  ? `https://${process.env.VERCEL_URL}`
+  : 'https://jmferreirab.github.io';
+
 export default defineConfig({
-  site: 'https://jmferreirab.github.io',
-  base: '/portfolio',
+  site: site,
+  base: process.env.VERCEL ? '/' : '/portfolio',
   integrations: [],
   vite: { plugins: [tailwindcss()] },
   compressHTML: true,
